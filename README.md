@@ -1,6 +1,7 @@
 # Dokumentacja aplikacji „KostytuRAG”
 
-Opis uruchomienia Aplikacji
+## Opis uruchomienia Aplikacji
+
 KostytuRAG został stworzony w pliku py w języku python z wykorzystaniem freameworka graficznego streamlit. Do uruchomiania aplikacji wymagane jest środowisko python(osobiście korzystałem z wersji pythona 3.12) oraz IDE obsługujące pliki pythonowe np. Visual Studio Code(z którego korzystałem). Do poprawnego działania aplikacji wymagane są następujące biblioteki:
 langchain==0.1.16
 langchain_community==0.0.33
@@ -21,7 +22,9 @@ Aplikację uruchomiamy poprzez wykonanie polecenia  w terminalu:
   
 streamlit run KostytuRAG.py 
 Uruchomiona aplikacja powinna znajdować na adresie http://localhost:8501/
-Opis uruchomienia Aplikacji Docker
+
+##Opis uruchomienia Aplikacji Docker
+
 Pierwszym krokiem jest zbudowanie obrazu z pliku Dockerfile. 
 Przykładowa komenda budująca obraz:
  ![image](https://github.com/Mydlyk/KostytuRAG/assets/65900710/5f1d800c-050c-4a36-840a-9f89b974961c)
@@ -34,10 +37,12 @@ Następnym krokiem jest uruchomienie/stworzenie kontenera z obrazu.
 docker run --name KostytuRAG -p 8501:8501 kostyturag 
 Uruchomiona aplikacja powinna znajdować na adresie http://localhost:8501/.
 
-Opis działania aplikacji
+##Opis działania aplikacji
+
 Aplikacja jest chatem ze sztuczną inteligencją ,który odpowiada na pytania wyłącznie dotyczące polskiej konstytucji.
 Aplikacja pobiera polską konstytucję z Internetu oraz konwertuję ją i zapisuje w bazie wektorowej FAISS. Na podstawie tego dokumentu odpowiada tylko na pytania powiązane z polską konstytucją. Na inne pytania odpowiada „Tego nie zawarto w polskiej konstytucji”. LLM openAi odpowiada w języku polskim i utrzymuje kontekst wypowiedzi.
-Opis kodu aplikacji
+## Opis kodu aplikacji
+
 ![image](https://github.com/Mydlyk/KostytuRAG/assets/65900710/f0e24927-7ddf-46fa-9c0c-9fa44d161831)
 
  
@@ -61,8 +66,6 @@ Funkcja get_response zwraca odpowiedz sztucznej inteligencji na pytanie na podst
  ![image](https://github.com/Mydlyk/KostytuRAG/assets/65900710/211f71d0-3c1b-4047-a146-71308c762bcd)
 
 Jeśli baza wektorowa jest pusta następuje pobranie konstytucji i jej zapisanie.
-![image](https://github.com/Mydlyk/KostytuRAG/assets/65900710/f924c206-1677-4fe0-bc82-12568d3b0bd9)
-
 Dodanie do historii chatu nowych odpowiedzi oraz zaznaczenie przez kogo została ona dodana.
 ![image](https://github.com/Mydlyk/KostytuRAG/assets/65900710/e464b078-51af-42ed-86e2-33d2e3e485da)
 ![image](https://github.com/Mydlyk/KostytuRAG/assets/65900710/efceab58-0556-4589-821c-a9d8e82d0a9b)
@@ -76,14 +79,15 @@ Ten kod odpowiada za wyświetlanie chatu.
  ![image](https://github.com/Mydlyk/KostytuRAG/assets/65900710/b5f86691-c928-4ad9-8a07-b28029b28ec7)
 
 Ten kod javascriptowy odpowiada za automatyczne scrolowanie w dół strony po dodaniu nowej wiadomości na wzór działania chatu gpt.
-Działanie aplikacji
+
+## Działanie aplikacji
  ![image](https://github.com/Mydlyk/KostytuRAG/assets/65900710/5e2d3e75-d551-472b-9a68-15e1abe6b65d)
 
 Rysunek 1 Początek aplikacji
  ![image](https://github.com/Mydlyk/KostytuRAG/assets/65900710/eff4fa32-aa13-44ce-9196-697aeea2d6c2)
 
 Rysunek 2 Działanie aplikacji
- ![image](https://github.com/Mydlyk/KostytuRAG/assets/65900710/06f65419-bb14-4a75-ae18-addf894bdb81)
+![image](https://github.com/Mydlyk/KostytuRAG/assets/65900710/a4806a14-512e-4e0e-8345-2d07c3443f81)
 
 Rysunek 3 Sprawdzenie czy chat odpowie na pytanie nie powiązane z polską konstytucją
 ![image](https://github.com/Mydlyk/KostytuRAG/assets/65900710/aec7a300-29ca-4d66-a53c-7f8686baa4d4)
